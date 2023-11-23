@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="http://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="http://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="http://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function App() {
+        let [text, setText] = React.useState("");
+        let [game, setGame] = React.useState("");
+        let [list, setList] = React.useState({
+          football: [],
+          basketball: [],
+          voleyball: [],
+        });
+
+        // let [football, setfootball] = React.useState([]);
+        // let [basketball, setbasketball] = React.useState([]);
+        // let [voleyball, setvoleyball] = React.useState([]);
+
+        const addPlayer = (event) => {
+          event.preventDefault();
+
+          if (text.length > 2 && game) {
+            console.log(newList);
+            let newList = {...list};
+            let has = newList[game].find(
+              (item) => item.toLowerCase() === text.toLowerCase()
+            );
+            if (has) {
+              alert("Такой уже есть!");
+            } else {
+              newList[game] = [...newList[game], text];
+              setList(newList);
+              setText("");
+              setGame("");
+            }
+          }
+
+          //   if (text.length > 2 && game == "football") {
+          //     let has = football.find(
+          //       (item) => item.toLowerCase() === text.toLowerCase());
+          //     if (has) {
+          //       alert("Такой уже есть!");
+          //     } else {
+          //       setfootball([...football, text]);
+          //     }
+          //   } else if (text.length > 2 && game == "basketball") {
+          //     let has = basketball.find(
+          //       (item) => item.toLowerCase() === text.toLowerCase());
+          //     if (has) {
+          //       alert("Такой уже есть!");
+          //     } else {
+          //       setbasketball([...basketball, text]);
+          //     }
+          //   } else if (text.length > 2 && game == "voleyball") {
+          //     let has = voleyball.find(
+          //       (item) => item.toLowerCase() === text.toLowerCase());
+          //     if (has) {
+          //       alert("Такой уже есть!");
+          //     } else {
+          //       setvoleyball([...voleyball, text]);
+          //     }
+          //   }
+          //   setText("");
+          //   setGame("");
+        };
+
+        // function filter() {
+        //   let allF = [...football, text];
+        //   let allB = [...basketball, text];
+        //   let allV = [...voleyball, text];
+        //   let withoutDublicate = [];
+        //   for (let i = 0; i < allF.length; i++) {
+        //     if (!withoutDublicate.inludes(allF[i])) {
+        //       withoutDublicate.push(allF[i]);
+        //     }
+        //   }
+
+        //   return allF;
+        // }
+
+        return (
+          <div className="return">
+            <input
+              type="text"
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+            />
+            <select
+              value={game}
+              onChange={(event) => setGame(event.target.value)}
+            >
+              <option>ввыберите игру</option>
+              <option>football</option>
+              <option>basketball</option>
+              <option>voleyball</option>
+            </select>
+
+            <button onClick={() => addPlayer(event)}>Add</button>
+            <ul className="list">
+              <div className="football">
+                <h2>football</h2>
+                {list.football.map((el, index) => (
+                  <li key={index}>{el}</li>
+                ))}
+              </div>
+              <div className="basketball">
+                <h2>basketball</h2>
+                {list.basketball.map((el) => (
+                  <li key={el}>{el}</li>
+                ))}
+              </div>
+              <div className="voleyball">
+                <h2>voleyball</h2>
+                {list.voleyball.map((el) => (
+                  <li key={el}>{el}</li>
+                ))}
+              </div>
+            </ul>
+          </div>
+        );
+      }
+
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    </script>
+  </body>
+</html>

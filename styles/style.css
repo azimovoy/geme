@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    max-width: 1000px;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    gap: 50px;
+}
+
+.return {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+body {
+    background: black;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    margin-top: 50px;
+    text-align: center; 
+    max-width: 300px;
+    color: grey;
+    border-radius: 30px ;
+}
+
+select {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center; 
+    max-width: 300px;
+
+}
+button {
+    font-size: 30px;
+    margin-top: 30px;
+    padding-top: 5px;
+    background: red;
+    text-align: center;
+    height: 50px;
+    width: 70px;
+    border-radius: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-top: 30px;
+    padding-top: 5px;
+    background: red;
+    text-align: center;
+    height: 50px;
+    width: 70px;
+    border-radius: 20px;
+}
+h2 {
+    margin-top: 10px;
+    width: 120px;
+    color: green;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.basketball, .voleyball, .football {
+    background: white;
+    border-radius: 20px;
+    max-width: 1000px;
+    width: 100%;
+    height: 500px;
+}
+
+
+li {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    max-width: 300px;
+    width: 100%;
+    background: white;
+}
